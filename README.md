@@ -1,6 +1,6 @@
 # StrawHat.GraphQL
 
-StrawHat GraphQL utils.
+GraphQL utils.
 
 ## Installation
 
@@ -11,4 +11,3 @@ def deps do
   ]
 end
 ```
-

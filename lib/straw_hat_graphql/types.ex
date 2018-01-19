@@ -3,12 +3,22 @@ defmodule StrawHat.GraphQL.Types do
   Common Absinthe Types.
 
   ## Interfaces
-  - node
-  - mutation_response
+  ### node
+  Just a simple interface that will force you to have an ID
+
+  ### mutation_response
+
+  Shape of the mutation response.
+  **Important: ** read the usage guide because `payload` field is not included
+  due to limitations and avoiding macros.
 
   ## Objects
+
+  ### Errors
   - error_metadata
   - error
+
+  These just map `t:StrawHat.Error.t/0` and `t:StrawHat.Error.ErrorMetadata.t/0`
   """
   use Absinthe.Schema.Notation
   alias StrawHat.GraphQL.Resolver.MetadataResolver
@@ -23,6 +33,11 @@ defmodule StrawHat.GraphQL.Types do
 
     @desc "List of errors when the mutation failed (successful: false)"
     field(:errors, list_of(:error))
+
+    # Super Important
+    # Due to limitations we can't include it here, we do not know the type
+    # of the response
+    # field(:payload, TYPE)
   end
 
   object :error_metadata do

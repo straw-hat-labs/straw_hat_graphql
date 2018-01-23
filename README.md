@@ -111,7 +111,7 @@ defmodule MyApp.ResolverHelpers
   alias StrawHat.GraphQL.MutationResponse
 
   def response_with({:ok, response}), do: MutationResponse.succeeded(response)
-  def response_with({:ok, reason}), do: MutationResponse.failed(reason)
+  def response_with({:error, reason}), do: MutationResponse.failed(reason)
   def response_with(_), do: raise ArgumentError
 end
 ```

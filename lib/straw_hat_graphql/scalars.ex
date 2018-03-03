@@ -3,6 +3,7 @@ defmodule StrawHat.GraphQL.Scalars do
   Common Absinthe Scalars.
 
   ## Scalars
+
   - :json
   """
 

@@ -3,18 +3,21 @@ defmodule StrawHat.GraphQL.Types do
   Common Absinthe Types.
 
   ## Interfaces
+
   ### node
+
   Just a simple interface that will force you to have an ID
 
   ### mutation_response
 
   Shape of the mutation response.
-  **Important: ** read the usage guide because `payload` field is not included
+  **Important:** read the usage guide because `payload` field is not included
   due to limitations and avoiding macros.
 
   ## Objects
 
   ### Errors
+
   - error_metadata
   - error
 

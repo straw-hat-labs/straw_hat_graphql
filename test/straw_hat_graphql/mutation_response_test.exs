@@ -24,7 +24,7 @@ defmodule StrawHat.Test.MutationResponseTest do
   end
 
   describe "failed/1" do
-    test "with an straw hat error" do
+    test "with a straw hat error" do
       error = StrawHat.Error.new("whatever")
       {:ok, response} = MutationResponse.failed(error)
 

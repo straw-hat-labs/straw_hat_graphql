@@ -2,7 +2,7 @@ defmodule StrawHat.GraphQL.Mixfile do
   use Mix.Project
 
   @name :straw_hat_graphql
-  @version "0.0.1"
+  @version "0.1.0"
   @elixir_version "~> 1.5"
 
   @description """

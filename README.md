@@ -39,7 +39,7 @@ information about the included types.
 
 Mutations is something that comes really handy and with a really nice API.
 
-**Note: ** For now there is some boilerplate code for the mutations. We are
+**Note:** For now there is some boilerplate code for the mutations. We are
 aware of using macros but to be honest sometimes is better a repeated code
 that shoot ourself in the foot, still thinking about creating macros for this.
 
@@ -48,7 +48,7 @@ from the interface of `mutation_response`
 
 ```elixir
 object :person do
-  interface :node
+  interface :straw_hat_node
 
   field :id, non_null(:id)
 
@@ -58,13 +58,13 @@ end
 # We recommend to use `_payload`, this is another place where we could macros
 object :person_payload do
   # This will force you to defined the schemas
-  interface :mutation_response
+  interface :straw_hat_mutation_response
 
   field :successful, non_null(:boolean)
-  field :errors, list_of(:error)
+  field :errors, list_of(:straw_hat_error)
 
   # This is where it gets tricky and probably we could use macros
-  # the reason is that we can't put this field inside `:mutation_response`
+  # the reason is that we can't put this field inside `:straw_hat_mutation_response`
   # because the type is not the same.
   field :payload, :person
 end
@@ -116,7 +116,7 @@ defmodule MyApp.ResolverHelpers
 end
 ```
 
-then youre resolver becomes
+then your resolver becomes
 
 ```elixir
 import MyApp.ResolverHelpers

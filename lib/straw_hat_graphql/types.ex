@@ -4,13 +4,14 @@ defmodule StrawHat.GraphQL.Types do
 
   ## Interfaces
 
-  ### node
+  ### straw_hat_node
 
   Just a simple interface that will force you to have an ID
 
   ### mutation_response
 
   Shape of the mutation response.
+
   **Important:** read the usage guide because `payload` field is not included
   due to limitations and avoiding macros.
 
@@ -18,24 +19,24 @@ defmodule StrawHat.GraphQL.Types do
 
   ### Errors
 
-  - error_metadata
-  - error
+  - straw_hat_error_metadata
+  - straw_hat_error
 
   These just map `t:StrawHat.Error.t/0` and `t:StrawHat.Error.ErrorMetadata.t/0`
   """
   use Absinthe.Schema.Notation
   alias StrawHat.GraphQL.Resolver.MetadataResolver
 
-  interface :node do
+  interface :straw_hat_node do
     field(:id, non_null(:id))
   end
 
-  interface :mutation_response do
+  interface :straw_hat_mutation_response do
     @desc "If the mutation happened without any problem"
     field(:successful, non_null(:boolean))
 
     @desc "List of errors when the mutation failed (successful: false)"
-    field(:errors, list_of(:error))
+    field(:errors, list_of(:straw_hat_error))
 
     # Super Important
     # Due to limitations we can't include it here, we do not know the type
@@ -43,7 +44,7 @@ defmodule StrawHat.GraphQL.Types do
     # field(:payload, TYPE)
   end
 
-  object :error_metadata do
+  object :straw_hat_error_metadata do
     field :key, :string do
       resolve(&MetadataResolver.key/3)
     end
@@ -53,7 +54,7 @@ defmodule StrawHat.GraphQL.Types do
     end
   end
 
-  object :error do
+  object :straw_hat_error do
     field(:id, non_null(:id))
 
     @desc "Identifier of the error"
@@ -63,6 +64,6 @@ defmodule StrawHat.GraphQL.Types do
     field(:type, :string)
 
     @desc "Information relative to the error"
-    field(:metadata, list_of(:error_metadata))
+    field(:metadata, list_of(:straw_hat_error_metadata))
   end
 end

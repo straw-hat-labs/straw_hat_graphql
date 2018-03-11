@@ -7,7 +7,7 @@ GraphQL utils.
 ```elixir
 def deps do
   [
-    {:straw_hat_graphql, "~> 0.0.1"}
+    {:straw_hat_graphql, "~> 0.1"}
   ]
 end
 ```

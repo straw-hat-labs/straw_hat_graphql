@@ -35,6 +35,49 @@ end
 Check `StrawHat.GraphQL.Types` and `StrawHat.GraphQL.Scalars` for more
 information about the included types.
 
+### Paginations
+
+There is some types for doing paginations. We follow Scrivener for formatting
+the response.
+
+**Note:** For now there is some boilerplate code for the paginations. We are
+aware of using macros but to be honest sometimes is better a repeated code
+that shoot ourself in the foot, still thinking about creating macros for this.
+
+```elixir
+object :person do
+  interface :straw_hat_node
+
+  field :id, non_null(:id)
+
+  # ... more fields
+end
+
+# We recommend to use `_pagination`, this is another place where we could macros.
+object :people_pagination do
+  # This will force you to defined the schemas
+  interface(:straw_hat_pagination)
+
+  field(:page, non_null(:straw_hat_pagination_page))
+  field(:total_entries, non_null(:integer))
+  field(:total_pages, non_null(:integer))
+
+  # This is where it gets tricky and probably we could use macros
+  # the reason is that we can't put this field inside `:straw_hat_pagination`
+  # because the type is not the same for all the objects.
+  field(:entries, list_of(:person))
+end
+```
+
+Now let's create the query.
+
+```elixir
+field :people, :people_pagination do
+  arg(:pagination, non_null(:straw_hat_pagination_page_input))
+  resolve(&PeopleResolver.get_people/2)
+end
+```
+
 ### Mutations
 
 Mutations is something that comes really handy and with a really nice API.
@@ -65,7 +108,7 @@ object :person_payload do
 
   # This is where it gets tricky and probably we could use macros
   # the reason is that we can't put this field inside `:straw_hat_mutation_response`
-  # because the type is not the same.
+  # because the type is not the same for all mutations.
   field :payload, :person
 end
 ```

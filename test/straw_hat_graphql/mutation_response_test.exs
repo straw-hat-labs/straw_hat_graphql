@@ -1,4 +1,4 @@
-defmodule StrawHat.Test.MutationResponseTest do
+defmodule StrawHat.GraphQL.Test.MutationResponseTest do
   use ExUnit.Case
   import Ecto.Changeset
   alias StrawHat.GraphQL.MutationResponse

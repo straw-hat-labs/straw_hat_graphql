@@ -1,4 +1,4 @@
-defmodule StrawHat.Test.JSONScalarTest do
+defmodule StrawHat.GraphQL.Test.JSONScalarTest do
   use ExUnit.Case
   alias StrawHat.GraphQL.Scalar.JSON
 

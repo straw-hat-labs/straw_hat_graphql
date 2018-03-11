@@ -38,7 +38,7 @@ defmodule StrawHat.GraphQL.Mixfile do
     [
       {:straw_hat, "~> 0.2"},
       {:absinthe, "~> 1.4"},
-      {:poison, "~> 3.1"},
+      {:poison, "~> 3.1", optional: true},
       {:ecto, "~> 2.2", optional: true},
 
       # Tools

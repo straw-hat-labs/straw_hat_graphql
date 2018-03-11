@@ -155,7 +155,7 @@ defmodule MyApp.ResolverHelpers
 
   def response_with({:ok, response}), do: MutationResponse.succeeded(response)
   def response_with({:error, reason}), do: MutationResponse.failed(reason)
-  def response_with(_), do: raise ArgumentError
+  def response_with(_), do: raise(ArgumentError)
 end
 ```
 
@@ -171,7 +171,8 @@ def update_person(%{person: person_params}, _) do
 end
 ```
 
-And now you are go to go.
+And now you are go to go. Or use `StrawHat.GraphQL.MutationResponse.response_with/1`
+but be aware that it is constrain by the inputs.
 
 Any suggestion and code pattern that you notice in your app, open an issue
 and let's talk about it.

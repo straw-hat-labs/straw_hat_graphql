@@ -16,6 +16,21 @@ defmodule StrawHat.GraphQL.Test.MutationResponseTest do
     |> validate_length(:title, is: 9)
   end
 
+  test "response_with/1" do
+    {:ok, response} = MutationResponse.response_with({:ok, %{hello: "world"}})
+    assert response.successful == true
+    assert response.payload.hello == "world"
+
+    error = StrawHat.Error.new("whatever")
+    {:ok, response} = MutationResponse.response_with({:error, error})
+    assert response.successful == false
+    assert List.first(response.errors).code == "whatever"
+
+    assert_raise ArgumentError, fn ->
+      MutationResponse.response_with(nil)
+    end
+  end
+
   test "succeeded/1" do
     {:ok, response} = MutationResponse.succeeded(%{hello: "world"})
 

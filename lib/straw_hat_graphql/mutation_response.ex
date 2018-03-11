@@ -69,5 +69,9 @@ defmodule StrawHat.GraphQL.MutationResponse do
     respond(response)
   end
 
+  def response_with({:ok, response}), do: succeeded(response)
+  def response_with({:error, reason}), do: failed(reason)
+  def response_with(_), do: raise(ArgumentError)
+
   defp respond(payload), do: {:ok, payload}
 end

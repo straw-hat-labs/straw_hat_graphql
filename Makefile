@@ -6,7 +6,7 @@ deps:
 testing: deps
 	mix credo
 	mix format --check-formatted
-	mix coveralls.travis
+	MIX_ENV=test mix coveralls.travis
 
 docs:
 	mix inch.report

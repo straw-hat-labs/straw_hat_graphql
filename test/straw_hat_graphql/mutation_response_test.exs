@@ -2,6 +2,7 @@ defmodule StrawHat.GraphQL.MutationResponseTest do
   use ExUnit.Case
   import Ecto.Changeset
   alias StrawHat.GraphQL.MutationResponse
+  doctest MutationResponse
 
   @types %{title: :string}
   @default %{title: "bar"}

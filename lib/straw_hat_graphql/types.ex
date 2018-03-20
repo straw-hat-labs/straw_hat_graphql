@@ -39,7 +39,7 @@ defmodule StrawHat.GraphQL.Types do
 
   """
   use Absinthe.Schema.Notation
-  alias StrawHat.GraphQL.Resolver.MetadataResolver
+  alias StrawHat.GraphQL.MetadataResolver
 
   interface :straw_hat_node do
     field(:id, non_null(:id))

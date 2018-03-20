@@ -1,4 +1,4 @@
-defmodule StrawHat.GraphQL.Resolver.MetadataResolver do
+defmodule StrawHat.GraphQL.MetadataResolver do
   @moduledoc """
   It is been used on `metadata object type` of the graph, it is
   `t:StrawHat.Error.ErrorMetadata.t/0` mapping. It converts the `key` and `value` to

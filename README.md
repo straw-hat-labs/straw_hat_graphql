@@ -1,5 +1,9 @@
 # StrawHat.GraphQL
 
+[![Build Status](https://travis-ci.org/straw-hat-team/straw_hat_graphql.svg?branch=master)](https://travis-ci.org/straw-hat-team/straw_hat_graphql)
+[![Coverage Status](https://coveralls.io/repos/github/straw-hat-team/straw_hat_graphql/badge.svg?branch=master)](https://coveralls.io/github/straw-hat-team/straw_hat_graphql?branch=master)
+[![Inline docs](http://inch-ci.org/github/straw-hat-team/straw_hat_graphql.svg)](http://inch-ci.org/github/straw-hat-team/straw_hat_graphql)
+
 GraphQL utils.
 
 ## Installation

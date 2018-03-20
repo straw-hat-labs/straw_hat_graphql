@@ -23,6 +23,8 @@ defmodule StrawHat.GraphQL.MetadataResolver do
   The following example shows the field `password_confirmation` failing so
   the value of `field_name` on the metadata will be `field_name: :password_confirmation`.
 
+  ## Examples
+
       changeset = User.changeset(%UserSchema{}, %{password_confirmation: "123qwe"})
       {:error, changeset} = Repo.insert(changeset)
       changeset.errors #=> [password_confirmation: {"is invalid", []}]
@@ -32,7 +34,7 @@ defmodule StrawHat.GraphQL.MetadataResolver do
   the clients want the coorelation between those names and the field name
   to be the same.
 
-  For Example
+  ## Examples
 
       arg :password_confirmation, non_null(:string)
 

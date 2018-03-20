@@ -7,6 +7,8 @@ defmodule StrawHat.GraphQL.MutationResponse do
 
   On the resolver.
 
+  ## Examples
+
       defmodule App.AccountResolver do
 
         alias StrawHat.GraphQL.MutationResponse

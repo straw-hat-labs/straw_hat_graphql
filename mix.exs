@@ -36,7 +36,7 @@ defmodule StrawHat.GraphQL.Mixfile do
 
   defp deps do
     [
-      {:straw_hat, "~> 0.2"},
+      {:straw_hat, "~> 0.4"},
       {:absinthe, "~> 1.4"},
       {:poison, "~> 3.1", optional: true},
       {:ecto, "~> 2.2", optional: true},

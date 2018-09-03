@@ -24,7 +24,7 @@
   "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [], [], "hexpm"},
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [], [], "hexpm"},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.1", "28a4d65b7f59893bc2c7de786dec1e1555bd742d336043fe644ae956c3497fbe", [], [], "hexpm"},
-  "straw_hat": {:hex, :straw_hat, "0.4.1", "d8996533134f84c21910188981d1915254f34a2700e7063f2624aeec447fe62b", [:mix], [{:ecto, "~> 2.2", [hex: :ecto, repo: "hexpm", optional: true]}, {:uuid, "~> 1.1", [hex: :uuid, repo: "hexpm", optional: false]}], "hexpm"},
+  "straw_hat": {:hex, :straw_hat, "0.4.2", "95111e3e42ce38e853248389262e119a58f82803eef24f7f8d10f3ec4fbdb467", [:mix], [{:ecto, "~> 2.2", [hex: :ecto, repo: "hexpm", optional: true]}, {:uuid, "~> 1.1", [hex: :uuid, repo: "hexpm", optional: false]}], "hexpm"},
   "unicode_util_compat": {:hex, :unicode_util_compat, "0.3.1", "a1f612a7b512638634a603c8f401892afbf99b8ce93a45041f8aaca99cadb85e", [], [], "hexpm"},
   "uuid": {:hex, :uuid, "1.1.8", "e22fc04499de0de3ed1116b770c7737779f226ceefa0badb3592e64d5cfb4eb9", [], [], "hexpm"},
 }

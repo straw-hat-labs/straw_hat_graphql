@@ -33,8 +33,8 @@ defmodule StrawHat.GraphQL.MixProject do
     [
       {:straw_hat, "~> 0.4"},
       {:absinthe, "~> 1.4"},
-      {:poison, "~> 3.1", optional: true},
-      {:ecto, "~> 2.2", optional: true},
+      {:jason, "~> 1.1"},
+      {:ecto, "~> 3.0", optional: true},
 
       # Tools
       {:dialyxir, ">= 0.0.0", only: [:dev], runtime: false},

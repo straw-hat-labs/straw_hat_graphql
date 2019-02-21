@@ -1,18 +1,17 @@
-language: elixir
 sudo: false
-
-elixir:
-  - 1.6.4
-otp_release:
-  - 20.2
-
-script:
-  - make testing
-after_script:
-  - make docs
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
 notifications:
   recipients:
-    - engineers@straw-hat-llc.com
+    - opensource@straw-hat-llc.com
+
+language: elixir
+elixir: 1.8
+otp_release: 21.2
+cache:
+  directories:
+    - _build
+    - deps
+
+script:
+  - make ci
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

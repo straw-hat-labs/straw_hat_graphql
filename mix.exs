@@ -1,30 +1,25 @@
-defmodule StrawHat.GraphQL.Mixfile do
+defmodule StrawHat.GraphQL.MixProject do
   use Mix.Project
 
   @name :straw_hat_graphql
   @version "0.2.1"
   @elixir_version "~> 1.5"
-
-  @description """
-  StrawHat GraphQL Utils
-  """
   @source_url "https://github.com/straw-hat-team/straw_hat_graphql"
 
   def project do
+    production? = Mix.env() == :prod
+
     [
       name: "StrawHat.GraphQL",
-      description: @description,
+      description: "StrawHat GraphQL Utils",
       app: @name,
       version: @version,
-      elixir: @elixir_version,
       deps: deps(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.html": :test
-      ],
-
-      # Extras
+      elixir: @elixir_version,
+      start_permanent: production?,
+      aliases: aliases(),
+      test_coverage: test_coverage(),
+      preferred_cli_env: cli_env(),
       package: package(),
       docs: docs()
     ]
@@ -47,6 +42,23 @@ defmodule StrawHat.GraphQL.Mixfile do
       {:excoveralls, ">= 0.0.0", only: [:test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: [:dev], runtime: false},
       {:inch_ex, ">= 0.0.0", only: [:dev], runtime: false}
+    ]
+  end
+
+  defp test_coverage do
+    [tool: ExCoveralls]
+  end
+
+  defp cli_env do
+    [
+      "coveralls.html": :test,
+      "coveralls.json": :test
+    ]
+  end
+
+  defp aliases do
+    [
+      test: ["test --trace"]
     ]
   end
 

@@ -5,11 +5,9 @@ defmodule StrawHat.GraphQL.Scalar.JSON do
 
   use Absinthe.Schema.Notation
 
-  @since "0.2.0"
   @spec serialize(Jason.Encoder.t()) :: iodata | no_return
   defdelegate serialize(value), to: Jason, as: :encode!
 
-  @since "0.2.0"
   @spec parse(%{value: String.t()}) :: {:ok, map} | :error
   def parse(%{value: value}) do
     case Jason.decode(value) do

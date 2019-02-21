@@ -36,7 +36,6 @@ defmodule StrawHat.GraphQL.MutationResponse do
   Returns a failed mutation response map.
   """
   if Code.ensure_loaded?(Ecto) do
-    @since "0.2.0"
     @spec failed(Ecto.Changeset.t()) :: {:ok, mutation_response}
     def failed(%Ecto.Changeset{} = changeset) do
       changeset
@@ -45,7 +44,6 @@ defmodule StrawHat.GraphQL.MutationResponse do
     end
   end
 
-  @since "0.2.0"
   @spec failed(StrawHat.Error.t()) :: {:ok, mutation_response}
   def failed(%Error{} = error) do
     [error]
@@ -53,30 +51,24 @@ defmodule StrawHat.GraphQL.MutationResponse do
     |> failed()
   end
 
-  @since "0.2.0"
   @spec failed(StrawHat.Error.ErrorList.t()) :: {:ok, mutation_response}
   def failed(%ErrorList{} = error_list) do
     StrawHat.Response.ok(%{successful: false, errors: error_list.errors})
   end
 
-  @since "0.2.0"
   @spec failed(any) :: no_return
   def failed(_), do: raise(ArgumentError)
 
   @doc """
   Returns a succeeded mutation response map.
   """
-  @since "0.2.0"
   @spec succeeded(any) :: {:ok, mutation_response}
   def succeeded(payload) do
     StrawHat.Response.ok(%{successful: true, payload: payload})
   end
 
-  @since "0.2.0"
   @spec response_with({:ok, any} | {:error, any} | any) :: {:ok, mutation_response} | no_return
   def response_with({:ok, response}), do: succeeded(response)
-  @since "0.2.0"
   def response_with({:error, reason}), do: failed(reason)
-  @since "0.2.0"
   def response_with(_), do: raise(ArgumentError)
 end

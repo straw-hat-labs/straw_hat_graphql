@@ -2,7 +2,7 @@ defmodule StrawHat.GraphQL.MixProject do
   use Mix.Project
 
   @name :straw_hat_graphql
-  @version "0.2.1"
+  @version "0.2.2"
   @elixir_version "~> 1.5"
   @source_url "https://github.com/straw-hat-team/straw_hat_graphql"
 
